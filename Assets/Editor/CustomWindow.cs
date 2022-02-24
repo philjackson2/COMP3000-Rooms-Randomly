@@ -4,7 +4,7 @@ using UnityEditor;
 public class CustomWindow : EditorWindow
 {
 
-	
+	string myString = "Hello World";
 
 	[MenuItem("Window/Rooms Randomly")]
 	public static void ShowWindow()
@@ -15,7 +15,14 @@ public class CustomWindow : EditorWindow
 	void OnGUI()
 	{
 
+		GUILayout.Label("Label Test", EditorStyles.boldLabel);
 
+		myString = EditorGUILayout.TextField("Name", myString);//this the stuff for testing a text field. probably not relevant
+
+		if (GUILayout.Button("Press me"))
+        {
+			Debug.Log("Press Sucess");
+        }
 
 	}
 }
