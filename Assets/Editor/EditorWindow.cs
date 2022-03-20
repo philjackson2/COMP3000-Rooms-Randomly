@@ -56,6 +56,8 @@ public class MyCustomEditor : EditorWindow
 
         // Store the selection index when the selection changes
         leftPane.onSelectionChange += (items) => { m_SelectedIndex = leftPane.selectedIndex; };
+
+
     }
 
     private void OnSpriteSelectionChange(IEnumerable<object> selectedItems)
