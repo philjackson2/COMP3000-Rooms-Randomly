@@ -1,13 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine.UIElements;
-using System.IO;
 
 public class CustomWindow : EditorWindow
 {
-
+	private UnityFolder Assets;
+	private Vector2 Scroll;
 
 
 	[MenuItem("Window/Rooms Randomly")]
@@ -35,10 +34,26 @@ public class CustomWindow : EditorWindow
 		}
 
 
-        
+		Scroll = GUILayout.BeginScrollView(Scroll);
+		GUILayout.BeginVertical();
 
-    }
 
-	
+		GUILayout.BeginHorizontal();
+		if (GUILayout.Button("find folders", EditorStyles.toolbarButton))
+			Assets = new UnityFolder("Assets", null, 0, position);
+		if (GUILayout.Button("Clear", EditorStyles.toolbarButton))
+			Assets = null;
+		GUILayout.EndHorizontal();
+
+		if (Assets != null)
+			Assets.VisualizeFolder();
+
+		GUILayout.EndVertical();
+		GUILayout.EndScrollView();
+
+
+	}
+
+
 
 }
