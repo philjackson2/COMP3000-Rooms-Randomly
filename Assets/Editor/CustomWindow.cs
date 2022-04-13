@@ -29,6 +29,11 @@ public class CustomWindow : EditorWindow
 			var EntryRoom = Resources.Load<GameObject>("Entry Room"); //takes the specific game object with that name and instatiates it on button press
 			var RoomTemplate = Resources.Load<GameObject>("Room Templates");
 			var Camera = Resources.Load<GameObject>("Main Camera");
+
+
+			
+
+
 			Instantiate(EntryRoom);
 			Instantiate(RoomTemplate);
 			Instantiate(Camera);
@@ -42,6 +47,8 @@ public class CustomWindow : EditorWindow
 		GUILayout.BeginHorizontal();
 		if (GUILayout.Button("find folders", EditorStyles.toolbarButton))
 			Assets = new UnityFolder("Assets", null, 0, position);
+
+
 		if (GUILayout.Button("Clear", EditorStyles.toolbarButton))
 			Assets = null;
 		GUILayout.EndHorizontal();
