@@ -19,6 +19,9 @@ direction. The base loaded rooms have doors in that direction to ensure that the
 
 You also have a closed room and boss to signify and end to the dungeon. 
 
+
+Finally there is the 'Wait Time'. This is how long you want it to run for generating rooms.
+
 Once everything is set up simply run the scene and the randomised dungeon will be generated. 
 
 --Customisation-- 

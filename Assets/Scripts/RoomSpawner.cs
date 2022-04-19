@@ -53,7 +53,7 @@ public class RoomSpawner : MonoBehaviour {
 				Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
 				Destroy(gameObject);
 			} 
-			spawned = true;
+			spawned = true; //This is called whenever a room colliders with another and destory it to ensure they do not overlap
 		}
 	}
 }
