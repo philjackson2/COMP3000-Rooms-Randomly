@@ -70,4 +70,6 @@ MonoBehaviour:
   closedRoom: {fileID: 1586528034238900, guid: 71addd1db0904154d960002486bf6a2b, type: 3}
   rooms: []
   waitTime: 2
-  boss: {fileID: 1898445321837384, guid: 09e14c596e782a742829f1166838514d, type: 3}
+  boss: {fileID: 2510839926353076162, guid: 6b3acbb0f7f81e3458a7d5cb2f6d3e0e, type: 3}
+  chestRoomSpawn: 5
+  chest: {fileID: 5774038221344241411, guid: 73fcb4961de966b48b4f4b0aa46e32a6, type: 3}
