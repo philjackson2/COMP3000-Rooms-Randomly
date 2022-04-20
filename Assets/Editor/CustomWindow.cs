@@ -40,6 +40,25 @@ public class CustomWindow : EditorWindow
 		}
 
 
+
+		if (GUILayout.Button("Instantiate Pixel Base Room")) //if statement for button press will call on the specific object located in the recourcess
+		{
+
+
+			var PixelEntryRoom = Resources.Load<GameObject>("Entry Room Pixel"); //takes the specific game object with that name and instatiates it on button press
+			var PixelRoomTemplate = Resources.Load<GameObject>("Room Templates Pixel");
+			var Camera = Resources.Load<GameObject>("Main Camera");
+
+
+
+
+
+			Instantiate(PixelEntryRoom);
+			Instantiate(PixelRoomTemplate);
+			Instantiate(Camera);
+		}
+
+
 		Scroll = GUILayout.BeginScrollView(Scroll);
 		GUILayout.BeginVertical();
 
