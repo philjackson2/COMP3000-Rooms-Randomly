@@ -20,8 +20,12 @@ public class CustomWindow : EditorWindow
 	{
 
 		GUILayout.Label("Rooms Randomly", EditorStyles.boldLabel);
-		
-									
+
+
+		string notification1 = " You have spawned the baseroom";
+		string notification2 = " You have spawned the pixel baseroom";
+		string notification3 = " You have spawned a custom room";
+
 		if (GUILayout.Button("Instantiate Base Room")) //if statement for button press will call on the specific object located in the recourcess
 		{
 
@@ -31,8 +35,8 @@ public class CustomWindow : EditorWindow
 			var Camera = Resources.Load<GameObject>("Main Camera");
 
 
-			
 
+			this.ShowNotification(new GUIContent(notification1)); //will show a notifcation stating that the base room has been spawned based off the earlier declared string
 
 			Instantiate(EntryRoom);
 			Instantiate(RoomTemplate);
@@ -50,13 +54,36 @@ public class CustomWindow : EditorWindow
 			var Camera = Resources.Load<GameObject>("Main Camera");
 
 
-
+			this.ShowNotification(new GUIContent(notification2));
 
 
 			Instantiate(PixelEntryRoom);
 			Instantiate(PixelRoomTemplate);
 			Instantiate(Camera);
 		}
+
+
+
+		if (GUILayout.Button("Instantiate Custom Room")) //if statement for button press will call on the specific object located in the recourcess
+		{
+
+
+			var CustomEntryRoom = Resources.Load<GameObject>("Custom Room"); 
+			var CustomRoomTemplate = Resources.Load<GameObject>("Room Templates Cusom");
+			var CustomCamera = Resources.Load<GameObject>("Main Camera Custom");
+
+
+			this.ShowNotification(new GUIContent(notification3));
+
+
+			Instantiate(CustomEntryRoom);
+			Instantiate(CustomRoomTemplate);
+			Instantiate(CustomCamera);
+		}
+
+
+
+
 
 
 		Scroll = GUILayout.BeginScrollView(Scroll);
