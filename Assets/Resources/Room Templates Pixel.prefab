@@ -72,4 +72,8 @@ MonoBehaviour:
   waitTime: 2
   boss: {fileID: 2510839926353076162, guid: 6b3acbb0f7f81e3458a7d5cb2f6d3e0e, type: 3}
   chestRoomSpawn: 5
-  chest: {fileID: 5774038221344241411, guid: 73fcb4961de966b48b4f4b0aa46e32a6, type: 3}
+  chests:
+  - {fileID: 5774038221344241411, guid: 73fcb4961de966b48b4f4b0aa46e32a6, type: 3}
+  selectedChest: 0
+  currentNumberofChests: 0
+  maxNumberOfChests: 5

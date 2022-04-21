@@ -39,7 +39,7 @@ public class RoomTemplates : MonoBehaviour {
 
     void randomizechest ()
     {
-		selectedChest = Random.Range(0, chests.Count); //this method chooses a random object image that the user has put into the chests list
+		selectedChest = Random.Range(0, chests.Count); //this method chooses a random object  that the user has put into the chests list
 	
     }
 
@@ -69,14 +69,12 @@ public class RoomTemplates : MonoBehaviour {
 				{
 					randomizechest(); //calls that that method in
 					chestRoomSpawn = Random.Range(0, rooms.Count - 1); //tracks from 0 to the max number of rooms it is spawned into
-
-					
-					Instantiate(chests[selectedChest], rooms[chestRoomSpawn].transform.position, Quaternion.identity, rooms[chestRoomSpawn].transform); //puts the chest into a random room in the same that the boss
-
+					Instantiate(chests[selectedChest], rooms[chestRoomSpawn].transform.position + new Vector3(Random.Range(2, -2), Random.Range( 2, -2), 0), Quaternion.identity, rooms[chestRoomSpawn].transform); //puts the chest into a random room in the same that the boss
+					//using new Vector 3 and the functions within to randomize the loocation of the chests within the rooms in order to stop items spawning on top of eachother
 					
 
 
-					currentNumberofChests++;
+					currentNumberofChests++; //++ to increament 
 
 				}
 			}
