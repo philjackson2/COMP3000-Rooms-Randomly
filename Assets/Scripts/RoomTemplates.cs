@@ -20,15 +20,28 @@ public class RoomTemplates : MonoBehaviour {
 	private bool spawnedBoss;
 	private bool spawnedChest;
 	public GameObject boss;
-	public int chestRoomSpawn; //declaring public int for user to delare which room they want the chest in
-	public GameObject chest;
+	public int chestRoomSpawn; //declaring public int set randomly by the script
 
 
+
+
+	public List<GameObject> chests;
+
+	public int selectedChest;
+
+
+	public int currentNumberofChests, maxNumberOfChests; //holds the current number and maximum number of chests spawned
+
+  
+
+
+
+
+    void randomizechest ()
+    {
+		selectedChest = Random.Range(0, chests.Count); //this method chooses a random object image that the user has put into the chests list
 	
-
-
-
-
+    }
 
 
 
@@ -48,22 +61,39 @@ public class RoomTemplates : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 		}
 
-		if (waitTime <= 0 && spawnedChest == false)
+		if (waitTime <= 0 && currentNumberofChests < maxNumberOfChests)
 		{
 		 for (int i = 0; i < rooms.Count; i++)
 			{
 				if (i == rooms.Count - 1)
 				{
-					Instantiate(chest, rooms[chestRoomSpawn].transform.position, Quaternion.identity); //puts the chest into the user determined room based on the code used for boss
-					spawnedChest = true;
+					randomizechest(); //calls that that method in
+					chestRoomSpawn = Random.Range(0, rooms.Count - 1); //tracks from 0 to the max number of rooms it is spawned into
+
+					
+					Instantiate(chests[selectedChest], rooms[chestRoomSpawn].transform.position, Quaternion.identity, rooms[chestRoomSpawn].transform); //puts the chest into a random room in the same that the boss
+
+					
+
+
+					currentNumberofChests++;
 
 				}
 			}
 		}
+
+
+
+
 		else
 		{
 			waitTime -= Time.deltaTime;
 		}
+
+
+		
+
+
 
 
 
