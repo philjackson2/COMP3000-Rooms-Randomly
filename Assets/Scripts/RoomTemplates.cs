@@ -14,42 +14,49 @@ public class RoomTemplates : MonoBehaviour {
 
 	public GameObject closedRoom;
 
-	public List<GameObject> rooms;
+	public List<GameObject> rooms; //included as spawned rooms will be added to the list which enables tracking
 
 	public float waitTime;
 	private bool spawnedBoss;
 	private bool spawnedChest;
+	private bool spawnedEnemies;
 	public GameObject boss;
-	public int chestRoomSpawn; //declaring public int set randomly by the script
-
+	
 
 
 
 	public List<GameObject> chests;
-
+	public int chestRoomSpawn; //declaring public int set randomly by the script
 	public int selectedChest;
-
-
 	public int currentNumberofChests, maxNumberOfChests; //holds the current number and maximum number of chests spawned
 
-  
 
 
+	public List<GameObject> enemies;
+	public int enemyRoomSpawn;
+	public int selectedEnemies;
+	public int currentNumberofEnemies, maxNumberOfEnemies;
 
 
-    void randomizechest ()
+	#region random number range 
+
+	void randomizechest ()
     {
 		selectedChest = Random.Range(0, chests.Count); //this method chooses a random object  that the user has put into the chests list
 	
     }
 
+	void randomizeEnemies()
+	{
+		selectedEnemies = Random.Range(0, enemies.Count); //this method chooses a random object  that the user has put into the chests list
 
+	}
 
-
+	#endregion
 
 	void Update(){
-
-		if(waitTime <= 0 && spawnedBoss == false){
+        #region boss spawn
+        if (waitTime <= 0 && spawnedBoss == false){
 			for (int i = 0; i < rooms.Count; i++) {
 				if(i == rooms.Count-1){
 					Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
@@ -60,8 +67,11 @@ public class RoomTemplates : MonoBehaviour {
 		} else {
 			waitTime -= Time.deltaTime;
 		}
+        #endregion
 
-		if (waitTime <= 0 && currentNumberofChests < maxNumberOfChests)
+
+        #region chest spawn
+        if (waitTime <= 0 && currentNumberofChests < maxNumberOfChests)
 		{
 		 for (int i = 0; i < rooms.Count; i++)
 			{
@@ -80,16 +90,42 @@ public class RoomTemplates : MonoBehaviour {
 			}
 		}
 
-
-
-
 		else
+		{
+			waitTime -= Time.deltaTime;
+		}
+        #endregion
+
+
+
+        #region enemie spawn
+
+        if (waitTime <= 0 && currentNumberofEnemies < maxNumberOfEnemies)
+		{
+			for (int i = 0; i < rooms.Count; i++)
+			{
+				if (i == rooms.Count - 1)
+				{
+					randomizeEnemies(); //calls that that method in
+					enemyRoomSpawn = Random.Range(0, rooms.Count - 1); //tracks from 0 to the max number of rooms it is spawned into
+					Instantiate(enemies[selectedEnemies], rooms[enemyRoomSpawn].transform.position + new Vector3(Random.Range(2, -2), Random.Range(2, -2), 0), Quaternion.identity, rooms[enemyRoomSpawn].transform); 
+																																																			
+
+
+
+					currentNumberofEnemies++; //++ to increament 
+
+				}
+			}
+		}
+
+			else
 		{
 			waitTime -= Time.deltaTime;
 		}
 
 
-		
+		#endregion
 
 
 

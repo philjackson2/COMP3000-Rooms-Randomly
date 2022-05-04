@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class CustomWindow : EditorWindow
 {
-	private UnityFolder Assets;
+
 	private Vector2 Scroll;
 
 
@@ -15,10 +15,10 @@ public class CustomWindow : EditorWindow
 		GetWindow<CustomWindow>("Rooms Randomly");
 	}
 
-	
+
 	void OnGUI()
 	{
-
+		
 		GUILayout.Label("Rooms Randomly", EditorStyles.boldLabel);
 
 
@@ -68,7 +68,7 @@ public class CustomWindow : EditorWindow
 		{
 
 
-			var CustomEntryRoom = Resources.Load<GameObject>("Custom Room"); 
+			var CustomEntryRoom = Resources.Load<GameObject>("Custom Room");
 			var CustomRoomTemplate = Resources.Load<GameObject>("Room Templates Custom");
 			var CustomCamera = Resources.Load<GameObject>("Main Camera");
 
@@ -89,21 +89,6 @@ public class CustomWindow : EditorWindow
 		Scroll = GUILayout.BeginScrollView(Scroll);
 		GUILayout.BeginVertical();
 
-
-		GUILayout.BeginHorizontal();
-		if (GUILayout.Button("Show Folders", EditorStyles.toolbarButton))
-			Assets = new UnityFolder("Assets", null, 0, position);
-
-
-		if (GUILayout.Button("Clear", EditorStyles.toolbarButton))
-			Assets = null;
-		GUILayout.EndHorizontal();
-
-		if (Assets != null)
-			Assets.VisualizeFolder();
-
-		GUILayout.EndVertical();
-		GUILayout.EndScrollView();
 
 
 	}
