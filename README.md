@@ -1,7 +1,12 @@
 # Rooms Randomly
 
 Developed by: Philip Jackson (Registration Number: 10733371)
+
 Project Supervisor: Mr.Paul Watson
+
+# Vision 
+Rooms Randomly is a games development tool made for Unity. It is designed for both experianced and inexperianced game developers. 
+It helps developers to either have a randomised dungeon for each level, with enemies, treasure and a boss. Or to help designed a pre determined dungeon. 
 
 # How to Install
 
