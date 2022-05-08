@@ -1,6 +1,7 @@
 # Rooms Randomly
 
-
+Developed by: Philip Jackson (Registration Number: 10733371)
+Project Supervisor: Mr.Paul Watson
 
 # How to Install
 
