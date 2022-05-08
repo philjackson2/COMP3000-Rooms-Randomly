@@ -85,8 +85,11 @@ public class CustomWindow : EditorWindow
 
 
 
+	
 
-		Scroll = GUILayout.BeginScrollView(Scroll);
+
+
+			Scroll = GUILayout.BeginScrollView(Scroll);
 		GUILayout.BeginVertical();
 
 

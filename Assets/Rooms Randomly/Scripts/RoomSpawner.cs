@@ -7,7 +7,7 @@ public class RoomSpawner : MonoBehaviour {
 	public int openingDirection;
 	// 1 = bottom door
 	// 2 = top door
-	// 3 =  left door
+	// 3 = left door
 	// 4 = right door
 
 
