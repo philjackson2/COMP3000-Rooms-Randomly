@@ -30,3 +30,5 @@ Find the README pdf within the zip downloaded
 # Licensing 
 
 This software is completely free to use. However, if published in any software it must be credited as 'Rooms Randomly'. If edited to suit your specification it must be credited as 'Rooms Randomly, with alterations' 
+
+Please refer to 'Liscence' in file structure.
